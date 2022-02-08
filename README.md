@@ -205,6 +205,64 @@ function App() {
 }
 ```
 
+## #3 Typescript
+
+### #3.2~ Using Interface
+
+#### Interface?
+Object를 설명하는 애
+```
+interface playerProps {
+  name: string;
+  age: number;
+}
+const sayHello = (playerObject: playerProps) => `Hello, ${playerObject.name}`;
+
+sayHello({name:"ellie", age:29});
+```
+
+#### required, optional
+```
+interface CircleProps { // interface explains "object"
+  bgColor: string; // required
+  borderColor?: string; // optional
+}
+```
+
+#### 모든 설정을 넘겨주고 싶지 않은 경우
+한 곳에만 borderColor를 넘겨주고 싶어서 css(container)에는 required로 지정해야하고 circle에는 optional로 지정해야 할 때
+```
+interface CircleProps { // interface explains "object"
+  bgColor: string; // required
+  borderColor?: string; // optional
+}
+
+interface ContainerProps {
+  bgColor: string;
+  borderColor: string;
+}
+```
+위에 처럼 container는 required로 주고 circle는 optional로 준다.
+
+```
+const Container = styled.div<ContainerProps>`
+  width: 200px;
+  height: 200px;
+  background-color: ${props => props.bgColor};
+  border-radius: 100px;
+  border: 5px solid ${props => props.borderColor}; // CSS에서는 borderColor가 required
+`;
+```
+그럼 위에처럼 css 설정할 때 border값을 넣어줄 수 있음
+
+```
+function Circle({bgColor, borderColor}: CircleProps) {
+  return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor } />;
+}
+```
+그리고 위에처럼 circle로 넘길 때 optional인 애는 그 값이 넘어오지 않을 경우 default 값을 같이 넘겨준다고 설정한다
+위의 예시에서는 디폴트 값으로 bgColor를 넘김 예를 들어 "black" 이렇게도 넘길 수 있어
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
