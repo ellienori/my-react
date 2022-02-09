@@ -263,6 +263,14 @@ function Circle({bgColor, borderColor}: CircleProps) {
 그리고 위에처럼 circle로 넘길 때 optional인 애는 그 값이 넘어오지 않을 경우 default 값을 같이 넘겨준다고 설정한다
 위의 예시에서는 디폴트 값으로 bgColor를 넘김 예를 들어 "black" 이렇게도 넘길 수 있어
 
+### #3.4 useState
+value가 string 일 수도 있고 number일 수도 있을 때
+```
+const [value, setValue] = useState<number|string>(0);
+  setValue(2);
+  setValue("hi");
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
