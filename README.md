@@ -287,6 +287,17 @@ npm i --save-dev @types/react-router-dom
 /btc/information
 /btc/chart
 
+### #4.2~ Home Part One, Two
+
+#### 바로 실행하는 함수 만들기
+```
+1. ()(); 이렇게 선언한 다음에 앞에 괄호 안에 async() => {}로 함수를 만든다.
+2. {} 안에 있는 내용이 바로 실행된다.
+ex: (async() => {
+      fetch("https://api.coinpaprika.com/v1/coins");
+    })();
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
