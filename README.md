@@ -271,6 +271,22 @@ const [value, setValue] = useState<number|string>(0);
   setValue("hi");
 ```
 
+## #4 CRYPTO TRACKER
+
+### #4.0 Set up
+latest가 6.x 버전인데 리뉴얼 되면서 문법이 바뀌어서 수업은 5.3.0으로 진행하도록 하자
+```
+npm i eact-router-dom@5.3.0 react-query
+npm i --save-dev @types/react-router-dom
+```
+
+#### 설계
+/ -> All coins (HOME)
+/:id -> /btc -> coin detail
+
+/btc/information
+/btc/chart
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
